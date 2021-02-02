@@ -7,6 +7,61 @@
     <script src="js/index.js" type="module"></script>
   </head>
   <body>
+    <svg id="defs">
+      <symbol id="download" viewBox="0 0 512 512">
+        <path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+      </symbol>
+      <symbol id="plus" viewBox="0 0 448 512">
+        <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path>
+      </symbol>
+    </svg>
 
+    <h1>Captain Hacker's Channel Packer</h1>
+    <div id="content">
+      <h2>Output</h2>
+      <canvas id="output"></canvas>
+      <button id="download-button"><svg class="icon"><use href="#download"></use></svg> Download</button>
+      <h2>Inputs</h2>
+      <div id="inputs">
+        <div class="input-outer">
+          Red
+          <div class="input">
+            <button class="icon-button"><svg class="icon"><use href="#plus"></use></svg></button>
+          </div>
+          <div class="radios">
+            <input id="rr" type="radio" name="rinput" value="r" class="channel-button"><label for="rr" class="channel">R</label><input id="rg" type="radio" name="rinput" value="g" class="channel-button"><label for="rg" class="channel">G</label><input id="rb" type="radio" name="rinput" value="b" class="channel-button"><label for="rb" class="channel">B</label><input id="ra" type="radio" name="rinput" value="a" class="channel-button"><label for="ra" class="channel">A</label>
+          </div>
+        </div>
+        <div class="input-outer">
+          Green
+          <div class="input">
+            <button class="icon-button"><svg class="icon"><use href="#plus"></use></svg></button>
+          </div>
+          <div class="radios">
+            <input id="gr" type="radio" name="ginput" value="r" class="channel-button"><label for="gr" class="channel">R</label><input id="gg" type="radio" name="ginput" value="g" class="channel-button"><label for="gg" class="channel">G</label><input id="gb" type="radio" name="ginput" value="b" class="channel-button"><label for="gb" class="channel">B</label><input id="ga" type="radio" name="ginput" value="a" class="channel-button"><label for="ga" class="channel">A</label>
+          </div>
+        </div>
+        <div class="input-outer">
+          Blue
+          <div class="input">
+            <button class="icon-button"><svg class="icon"><use href="#plus"></use></svg></button>
+          </div>
+          <div class="radios">
+            <input id="br" type="radio" name="binput" value="r" class="channel-button"><label for="br" class="channel">R</label><input id="bg" type="radio" name="binput" value="g" class="channel-button"><label for="bg" class="channel">G</label><input id="bb" type="radio" name="binput" value="b" class="channel-button"><label for="bb" class="channel">B</label><input id="ba" type="radio" name="binput" value="a" class="channel-button"><label for="ba" class="channel">A</label>
+          </div>
+        </div>
+        <div class="input-outer">
+          Alpha
+          <div class="input">
+            <button class="icon-button"><svg class="icon"><use href="#plus"></use></svg></button>
+          </div>
+          <div class="radios">
+            <input id="ar" type="radio" name="ainput" value="r" class="channel-button"><label for="ar" class="channel">R</label><input id="ag" type="radio" name="ainput" value="g" class="channel-button"><label for="ag" class="channel">G</label><input id="ab" type="radio" name="ainput" value="b" class="channel-button"><label for="ab" class="channel">B</label><input id="aa" type="radio" name="ainput" value="a" class="channel-button"><label for="aa" class="channel">A</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span id="footnote">Icons by <a href="https://fontawesome.com/">Font
+    Awesome</a> (<a href="https://fontawesome.com/license/free">CC BY 4.0</a>)</span>
   </body>
 </html>
