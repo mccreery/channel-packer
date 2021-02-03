@@ -13,7 +13,7 @@ canvas {
   object-fit: contain;
 }
 
-#output {
+#output-canvas {
   width: 40vmin;
   height: 40vmin;
   display: block;
@@ -27,7 +27,7 @@ canvas {
   margin: auto;
 }
 
-#output, .input {
+#output-canvas, .input {
   border: 1px solid black;
 }
 
