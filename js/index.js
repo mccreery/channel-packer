@@ -1,48 +1,76 @@
-const redInputCanvas = document.getElementById("red-canvas");
+// Constants
 
-addInputListeners(document.getElementById("red-file"), document.getElementById("red-canvas"));
+const channels = [ "red", "green", "blue", "alpha" ];
+const output = document.getElementById("output-canvas");
+const inputs = channels.map(channel => document.getElementById(`${channel}-input`));
 
-function addInputListeners(fileInput, canvas) {
-  fileInput.addEventListener("change", event => {
-    if (fileInput.files.length > 0) {
-      createImageBitmap(fileInput.files[0]).then(image => {
-        canvas.width = image.width;
-        canvas.height = image.height;
+// Functions
 
-        let ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0);
+async function updateInputs(startIndex, files) {
+  for (let i = 0; i < files.length; i++) {
+    await drawImage(inputs[(startIndex + i) % inputs.length], files[i]);
+  }
+}
 
-        canvas.style.visibility = "visible";
-        updateOutput();
-      });
-    }
+function drawImage(input, blob) {
+  return createImageBitmap(blob).then(image => {
+    const canvas = input.querySelector("canvas");
+
+    canvas.width = image.width;
+    canvas.height = image.height;
+    canvas.getContext("2d").drawImage(image, 0, 0);
+
+    input.classList.add("present");
   });
 }
 
-const channels = "rgba";
-
-function getInputChannel(outputChannel) {
-  return document.querySelector(`input[name=${outputChannel}]:checked`).value;
-}
-
-const outputCanvas = document.getElementById("output-canvas");
-
 function updateOutput() {
-  outputCanvas.width = redInputCanvas.width;
-  outputCanvas.height = redInputCanvas.height;
+  const [ width, height ] = getInputSize();
 
-  const outputData = getData(outputCanvas);
-  const redData = getData(redInputCanvas);
+  output.width = width;
+  output.height = height;
 
-  const inputChannel = getInputChannel("r");
-  const channelOffset = channels.indexOf(inputChannel);
+  const inputData = inputs.map(input => {
+    if (input.classList.contains("present")) {
+      const context = input.querySelector("canvas").getContext("2d");
+      const data = context.getImageData(0, 0, width, height).data;
+      const selectedChannel = input.querySelector("form").elements["channel"].value;
 
-  packChannels(outputData.data, redData.data.subarray(channelOffset), redData.data.subarray(channelOffset), redData.data.subarray(channelOffset), redData.data.subarray(channelOffset));
-  outputCanvas.getContext("2d").putImageData(outputData, 0, 0);
+      return data.subarray(channels.indexOf(selectedChannel));
+    } else {
+      return null;
+    }
+  });
+
+  if (!(null in inputData)) {
+    const context = output.getContext("2d");
+    const outputData = context.createImageData(width, height);
+
+    packChannels(outputData.data, ...inputData);
+    context.putImageData(outputData, 0, 0);
+  }
 }
 
-function getData(canvas) {
-  return canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height);
+function getInputSize() {
+  let width, height;
+
+  for (const input of inputs) {
+    if (!input.classList.contains("present")) continue;
+    const canvas = input.querySelector("canvas");
+
+    if (width === undefined) {
+      width = canvas.width;
+      height = canvas.height;
+    } else if (width !== canvas.width || height !== canvas.height) {
+      throw `Input images are different sizes: ${width}x${height} and ${canvas.width}x${canvas.height}`;
+    }
+  }
+
+  if (width === undefined || height === undefined) {
+    throw "No images";
+  }
+
+  return [ width, height ];
 }
 
 function packChannels(dst, srcR, srcG, srcB, srcA) {
@@ -54,10 +82,26 @@ function packChannels(dst, srcR, srcG, srcB, srcA) {
   }
 }
 
+// Entry point
+
+for (let i = 0; i < inputs.length; i++) {
+  const input = inputs[i];
+
+  // Update output canvas when new file is added
+  const fileInput = input.querySelector("input[type=file]");
+  fileInput.addEventListener("change", event => {
+    updateInputs(i, event.target.files).then(updateOutput);
+  });
+
+  // Update output canvas when different channel is selected
+  const form = input.querySelector("form");
+  form.addEventListener("change", updateOutput);
+}
+
 document.getElementById("download-button").addEventListener("click", event => {
   event.target.disabled = true;
 
-  outputCanvas.toBlob(blob => {
+  output.toBlob(blob => {
     event.target.disabled = false;
 
     const link = document.createElement("a");

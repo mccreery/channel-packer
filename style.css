@@ -47,6 +47,10 @@ canvas {
   height: 100%;
 }
 
+.present canvas {
+  visibility: visible;
+}
+
 #footnote {
   position: fixed;
   bottom: 5px;

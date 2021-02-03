@@ -14,25 +14,85 @@
       <button id="download-button" class="button"><svg class="icon"><use href="icons.svg#download"></use><use class="spinner" href="icons.svg#cog"></use></svg> Download</button>
       <h2>Inputs</h2>
       <div id="inputs">
-        <div>
+        <div id="red-input">
           Red
           <div class="input-container">
-            <label for="red-file" class="file-label">
-              <input type="file" id="red-file" class="file" accept="image/*" multiple>
+            <label class="file-label">
+              <input type="file" class="file" accept="image/*" multiple>
               <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
             </label>
-            <canvas class="input-canvas" id="red-canvas"></canvas>
+            <canvas class="input-canvas"></canvas>
           </div>
-          <div class="channel-radios">
-            <input id="rr" class="channel-radio" type="radio" name="r" value="r"  checked>
+          <form class="channel-radios" action="javascript:void(0)">
+            <input id="rr" class="channel-radio" type="radio" name="channel" value="red" checked>
             <label for="rr" class="channel-label">R</label>
-            <input id="rg" class="channel-radio" type="radio" name="r" value="g">
+            <input id="rg" class="channel-radio" type="radio" name="channel" value="green">
             <label for="rg" class="channel-label">G</label>
-            <input id="rb" class="channel-radio" type="radio" name="r" value="b">
+            <input id="rb" class="channel-radio" type="radio" name="channel" value="blue">
             <label for="rb" class="channel-label">B</label>
-            <input id="ra" class="channel-radio" type="radio" name="r" value="a">
+            <input id="ra" class="channel-radio" type="radio" name="channel" value="alpha">
             <label for="ra" class="channel-label">A</label>
+          </form>
+        </div>
+        <div id="green-input">
+          Green
+          <div class="input-container">
+            <label class="file-label">
+              <input type="file" class="file" accept="image/*" multiple>
+              <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
+            </label>
+            <canvas class="input-canvas"></canvas>
           </div>
+          <form class="channel-radios" action="javascript:void(0)">
+            <input id="gr" class="channel-radio" type="radio" name="channel" value="red">
+            <label for="gr" class="channel-label">R</label>
+            <input id="gg" class="channel-radio" type="radio" name="channel" value="green" checked>
+            <label for="gg" class="channel-label">G</label>
+            <input id="gb" class="channel-radio" type="radio" name="channel" value="blue">
+            <label for="gb" class="channel-label">B</label>
+            <input id="ga" class="channel-radio" type="radio" name="channel" value="alpha">
+            <label for="ga" class="channel-label">A</label>
+          </form>
+        </div>
+        <div id="blue-input">
+          Blue
+          <div class="input-container">
+            <label class="file-label">
+              <input type="file" class="file" accept="image/*" multiple>
+              <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
+            </label>
+            <canvas class="input-canvas"></canvas>
+          </div>
+          <form class="channel-radios" action="javascript:void(0)">
+            <input id="br" class="channel-radio" type="radio" name="channel" value="red">
+            <label for="br" class="channel-label">R</label>
+            <input id="bg" class="channel-radio" type="radio" name="channel" value="green">
+            <label for="bg" class="channel-label">G</label>
+            <input id="bb" class="channel-radio" type="radio" name="channel" value="blue" checked>
+            <label for="bb" class="channel-label">B</label>
+            <input id="ba" class="channel-radio" type="radio" name="channel" value="alpha">
+            <label for="ba" class="channel-label">A</label>
+          </form>
+        </div>
+        <div id="alpha-input">
+          Alpha
+          <div class="input-container">
+            <label class="file-label">
+              <input type="file" class="file" accept="image/*" multiple>
+              <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
+            </label>
+            <canvas class="input-canvas"></canvas>
+          </div>
+          <form class="channel-radios" action="javascript:void(0)">
+            <input id="ar" class="channel-radio" type="radio" name="channel" value="red">
+            <label for="ar" class="channel-label">R</label>
+            <input id="ag" class="channel-radio" type="radio" name="channel" value="green">
+            <label for="ag" class="channel-label">G</label>
+            <input id="ab" class="channel-radio" type="radio" name="channel" value="blue">
+            <label for="ab" class="channel-label">B</label>
+            <input id="aa" class="channel-radio" type="radio" name="channel" value="alpha" checked>
+            <label for="aa" class="channel-label">A</label>
+          </form>
         </div>
       </div>
     </div>
