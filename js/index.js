@@ -22,7 +22,7 @@ function addInputListeners(fileInput, canvas) {
 const channels = "rgba";
 
 function getInputChannel(outputChannel) {
-  return document.querySelector(`input[name=${outputChannel}input]:checked`).value;
+  return document.querySelector(`input[name=${outputChannel}]:checked`).value;
 }
 
 const outputCanvas = document.getElementById("output-canvas");

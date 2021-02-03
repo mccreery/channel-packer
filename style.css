@@ -29,12 +29,13 @@ canvas {
   margin: auto;
 }
 
-#output-canvas, .input {
+#output-canvas {
   border: 1px solid black;
 }
 
-.input {
+.input-container {
   position: relative;
+  border: 1px solid black;
 }
 
 .input-canvas {
@@ -50,11 +51,6 @@ canvas {
   position: fixed;
   bottom: 5px;
   right: 5px;
-}
-
-.radios {
-  text-align: center;
-  margin: .5rem 0;
 }
 
 #download-button {
@@ -102,7 +98,7 @@ canvas {
 
 /* Add buttons */
 
-.add-outer {
+.file-label {
   width: 20vmin;
   height: 20vmin;
   display: flex;
@@ -122,38 +118,40 @@ canvas {
   cursor: pointer;
 }
 
-.add-inner {
+.plus-box {
   line-height: 0;
   border: .2rem solid black;
   padding: .5rem;
   border-radius: .5rem;
 }
 
-.add-outer:hover:not(:active) > .add-inner {
+.file-label:hover:not(:active) > .plus-box {
   background: black;
   color: white;
 }
 
-.file:focus + .add-inner {
+.file:focus + .plus-box {
   box-shadow: 0 0 0 .1rem inset white, 0 0 0 .2rem inset black;
 }
 
-/* Row buttons */
+/* Channel radio buttons */
 
-.channel-button {
+.channel-radios {
+  display: flex;
+  text-align: center;
+  margin: .5rem 0;
+}
+
+.channel-radio {
   appearance: none;
   margin: 0;
 }
 
-.channel-button:focus {
+.channel-radio:focus {
   outline: none;
 }
 
-.radios {
-  display: flex;
-}
-
-.channel {
+.channel-label {
   flex: 1 0 auto;
 
   border: .2rem solid black;
@@ -163,32 +161,29 @@ canvas {
   cursor: pointer;
 }
 
-.channel-button:focus + .channel {
-  box-shadow: 0 0 0 .1rem inset white;
+:focus + .channel-label, .channel-label:active {
+  box-shadow: 0 0 0 .1rem inset white, 0 0 0 .2rem inset black;
 }
 
-.channel:hover, .channel-button:active + .channel, .channel-button:focus + .channel, .channel-button:checked + .channel {
+.channel-label:hover:not(:active), :focus + .channel-label, :checked + .channel-label {
   background-color: black;
   color: white;
 }
 
-.channel:first-of-type {
+.channel-label:first-of-type {
   border-left-width: .3rem !important;
   border-radius: .5rem 0 0 .5rem;
 }
 
-.channel:last-of-type {
+.channel-label:last-of-type {
   border-radius: 0 .5rem .5rem 0;
 }
 
 /* SVG icons */
 
 svg {
+  /* Cascade text color into SVG */
   fill: currentColor;
-}
-
-#defs {
-  display: none;
 }
 
 .icon {
