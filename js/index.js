@@ -78,16 +78,22 @@ function packChannels(outputData, inputData) {
     const data = inputData[i];
 
     if (data !== null) {
-      for (let j = i; j < outputData.length; j += 4) {
-        outputData[j] = data[j];
-      }
+      copy(outputData, data, i, 4);
     } else {
-      const defaultValue = defaultValues[i];
-
-      for (let j = i; j < outputData.length; j += 4) {
-        outputData[j] = defaultValue;
-      }
+      fill(outputData, defaultValues[i], i, 4);
     }
+  }
+}
+
+function fill(outArray, value, start, stride) {
+  for (let i = start; i < outArray.length; i += stride) {
+    outArray[i] = value;
+  }
+}
+
+function copy(outArray, inArray, start, stride) {
+  for (let i = start; i < outArray.length; i += stride) {
+    outArray[i] = inArray[i];
   }
 }
 
