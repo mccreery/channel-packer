@@ -55,7 +55,11 @@ function packChannels(dst, srcR, srcG, srcB, srcA) {
 }
 
 document.getElementById("download-button").addEventListener("click", event => {
+  event.target.disabled = true;
+
   outputCanvas.toBlob(blob => {
+    event.target.disabled = false;
+
     const link = document.createElement("a");
     link.download = "packed.png";
     link.href = URL.createObjectURL(blob);

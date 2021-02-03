@@ -84,6 +84,10 @@ canvas {
   cursor: pointer;
 }
 
+.button:disabled {
+  color: black;
+}
+
 .button:hover:not(:active) {
   background: black;
   color: white;
@@ -189,4 +193,26 @@ svg {
   width: 1rem;
   height: 1rem;
   vertical-align: middle;
+}
+
+/* SVG spinner */
+
+.spinner {
+  visibility: hidden;
+  transform-origin: center;
+  animation: spinner 2s infinite linear;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:disabled use {
+  visibility: hidden;
+}
+
+:disabled .spinner {
+  visibility: visible;
 }
