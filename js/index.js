@@ -93,7 +93,7 @@ function fill(outArray, value, start, stride) {
 
 function copy(outArray, inArray, start, stride) {
   for (let i = start; i < outArray.length; i += stride) {
-    outArray[i] = inArray[i];
+    outArray[i] = inArray[i - start];
   }
 }
 
