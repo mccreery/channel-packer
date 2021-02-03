@@ -10,7 +10,9 @@
     <h1>Captain Hacker's Channel Packer</h1>
     <div id="content">
       <h2>Output</h2>
-      <canvas id="output-canvas"></canvas>
+      <div id="output-container">
+        <canvas id="output-canvas"></canvas>
+      </div>
       <button id="download-button" class="button"><svg class="icon"><use href="icons.svg#download"></use><use class="spinner" href="icons.svg#cog"></use></svg> Download</button>
       <h2>Inputs</h2>
       <div id="inputs">
@@ -22,6 +24,7 @@
               <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
             </label>
             <canvas class="input-canvas"></canvas>
+            <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
           <form class="channel-radios" action="javascript:void(0)">
             <input id="rr" class="channel-radio" type="radio" name="channel" value="red" checked>
@@ -42,6 +45,7 @@
               <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
             </label>
             <canvas class="input-canvas"></canvas>
+            <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
           <form class="channel-radios" action="javascript:void(0)">
             <input id="gr" class="channel-radio" type="radio" name="channel" value="red">
@@ -62,6 +66,7 @@
               <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
             </label>
             <canvas class="input-canvas"></canvas>
+            <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
           <form class="channel-radios" action="javascript:void(0)">
             <input id="br" class="channel-radio" type="radio" name="channel" value="red">
@@ -82,6 +87,7 @@
               <div class="plus-box"><svg class="icon"><use href="icons.svg#plus"></use></svg></div>
             </label>
             <canvas class="input-canvas"></canvas>
+            <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
           <form class="channel-radios" action="javascript:void(0)">
             <input id="ar" class="channel-radio" type="radio" name="channel" value="red">

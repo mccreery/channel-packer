@@ -15,13 +15,6 @@ canvas {
   background-size: 12.5%;
 }
 
-#output-canvas {
-  width: 40vmin;
-  height: 40vmin;
-  display: block;
-  margin: 1rem auto;
-}
-
 #inputs {
   display: flex;
   justify-content: space-between;
@@ -29,8 +22,18 @@ canvas {
   margin: auto;
 }
 
-#output-canvas {
+#output-container {
   border: 1px solid black;
+  width: 40vmin;
+  height: 40vmin;
+  display: block;
+  margin: 1rem auto;
+}
+
+#output-canvas {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .input-container {
@@ -39,15 +42,15 @@ canvas {
 }
 
 .input-canvas {
-  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  visibility: hidden;
 }
 
-.present canvas {
+#output-canvas.present, .present .input-canvas {
   visibility: visible;
 }
 
@@ -215,5 +218,20 @@ svg {
 }
 
 :disabled .spinner {
+  visibility: visible;
+}
+
+/* Delete button */
+
+.delete-button {
+  line-height: 0;
+  padding: .5rem;
+  visibility: hidden;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+
+.present .delete-button {
   visibility: visible;
 }

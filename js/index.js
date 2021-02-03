@@ -25,6 +25,7 @@ function drawImage(input, blob) {
 }
 
 function updateOutput() {
+  output.classList.remove("present");
   const [ width, height ] = getInputSize();
 
   output.width = width;
@@ -47,6 +48,7 @@ function updateOutput() {
 
   packChannels(outputData.data, inputData);
   context.putImageData(outputData, 0, 0);
+  output.classList.add("present");
 }
 
 function getInputSize() {
@@ -111,6 +113,13 @@ for (let i = 0; i < inputs.length; i++) {
   // Update output canvas when different channel is selected
   const form = input.querySelector("form");
   form.addEventListener("change", updateOutput);
+
+  // Remove existing image when trash icon is clicked
+  const trash = input.querySelector(".delete-button");
+  trash.addEventListener("click", () => {
+    input.classList.remove("present");
+    updateOutput();
+  });
 }
 
 document.getElementById("download-button").addEventListener("click", event => {
