@@ -53,3 +53,12 @@ function packChannels(dst, srcR, srcG, srcB, srcA) {
     dst[i + 3] = srcA[i];
   }
 }
+
+document.getElementById("download-button").addEventListener("click", event => {
+  outputCanvas.toBlob(blob => {
+    const link = document.createElement("a");
+    link.download = "packed.png";
+    link.href = URL.createObjectURL(blob);
+    link.click();
+  });
+});
