@@ -31,6 +31,10 @@ canvas {
   border: 1px solid black;
 }
 
+.input {
+  position: relative;
+}
+
 .input-canvas {
   visibility: hidden;
   position: absolute;

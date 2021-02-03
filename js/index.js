@@ -1,8 +1,20 @@
 const CHANNELS = "rgba";
 
-function addInputListeners(button, canvas) {
-  button.addEventListener("click", event => {
+addInputListeners(document.getElementById("red-file"), document.getElementById("red-canvas"));
 
+function addInputListeners(fileInput, canvas) {
+  fileInput.addEventListener("change", event => {
+    if (fileInput.files.length > 0) {
+      createImageBitmap(fileInput.files[0]).then(image => {
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0);
+
+        canvas.style.visibility = "visible";
+      });
+    }
   });
 }
 
