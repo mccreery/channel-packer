@@ -42,13 +42,11 @@ function updateOutput() {
     }
   });
 
-  if (!(null in inputData)) {
-    const context = output.getContext("2d");
-    const outputData = context.createImageData(width, height);
+  const context = output.getContext("2d");
+  const outputData = context.createImageData(width, height);
 
-    packChannels(outputData.data, ...inputData);
-    context.putImageData(outputData, 0, 0);
-  }
+  packChannels(outputData.data, inputData);
+  context.putImageData(outputData, 0, 0);
 }
 
 function getInputSize() {
@@ -73,12 +71,23 @@ function getInputSize() {
   return [ width, height ];
 }
 
-function packChannels(dst, srcR, srcG, srcB, srcA) {
-  for (let i = 0; i < dst.length; i += 4) {
-    dst[i] = srcR[i];
-    dst[i + 1] = srcG[i];
-    dst[i + 2] = srcB[i];
-    dst[i + 3] = srcA[i];
+function packChannels(outputData, inputData) {
+  const defaultValues = [ 0, 0, 0, 255 ];
+
+  for (let i = 0; i < 4; i++) {
+    const data = inputData[i];
+
+    if (data !== null) {
+      for (let j = i; j < outputData.length; j += 4) {
+        outputData[j] = data[j];
+      }
+    } else {
+      const defaultValue = defaultValues[i];
+
+      for (let j = i; j < outputData.length; j += 4) {
+        outputData[j] = defaultValue;
+      }
+    }
   }
 }
 
