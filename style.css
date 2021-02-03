@@ -11,6 +11,8 @@ h2 {
 
 canvas {
   object-fit: contain;
+  background: url(checker.svg) repeat;
+  background-size: 12.5%;
 }
 
 #output-canvas {
