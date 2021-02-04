@@ -235,3 +235,36 @@ svg {
 .present .delete-button {
   visibility: visible;
 }
+
+/* Checkbox */
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox {
+  line-height: 0;
+  border: .2rem solid black;
+  padding: .4rem;
+  border-radius: .3rem;
+}
+
+.check {
+  visibility: hidden;
+}
+
+:checked + .checkbox > .check {
+  visibility: visible;
+}
+
+.checkbox-wrapper:hover:not(:active) > .checkbox {
+  background: black;
+  color: white;
+}
+
+:focus + .checkbox {
+  box-shadow: 0 0 0 .1rem inset white, 0 0 0 .2rem inset black;
+}

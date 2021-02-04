@@ -26,15 +26,22 @@
             <canvas class="input-canvas"></canvas>
             <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
-          <form class="channel-radios" action="javascript:void(0)">
-            <input id="rr" class="channel-radio" type="radio" name="channel" value="red" checked>
-            <label for="rr" class="channel-label">R</label>
-            <input id="rg" class="channel-radio" type="radio" name="channel" value="green">
-            <label for="rg" class="channel-label">G</label>
-            <input id="rb" class="channel-radio" type="radio" name="channel" value="blue">
-            <label for="rb" class="channel-label">B</label>
-            <input id="ra" class="channel-radio" type="radio" name="channel" value="alpha">
-            <label for="ra" class="channel-label">A</label>
+          <form action="javascript:void(0)">
+            <div class="channel-radios">
+              <input id="rr" class="channel-radio" type="radio" name="channel" value="red" checked>
+              <label for="rr" class="channel-label">R</label>
+              <input id="rg" class="channel-radio" type="radio" name="channel" value="green">
+              <label for="rg" class="channel-label">G</label>
+              <input id="rb" class="channel-radio" type="radio" name="channel" value="blue">
+              <label for="rb" class="channel-label">B</label>
+              <input id="ra" class="channel-radio" type="radio" name="channel" value="alpha">
+              <label for="ra" class="channel-label">A</label>
+            </div>
+            <label for="red-invert" class="checkbox-wrapper">
+              <input id="red-invert" type="checkbox" name="invert">
+              <svg class="icon checkbox"><use class="check" href="icons.svg#check"></use></svg>
+              Invert
+            </label>
           </form>
         </div>
         <div id="green-input">
@@ -47,15 +54,22 @@
             <canvas class="input-canvas"></canvas>
             <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
-          <form class="channel-radios" action="javascript:void(0)">
-            <input id="gr" class="channel-radio" type="radio" name="channel" value="red">
-            <label for="gr" class="channel-label">R</label>
-            <input id="gg" class="channel-radio" type="radio" name="channel" value="green" checked>
-            <label for="gg" class="channel-label">G</label>
-            <input id="gb" class="channel-radio" type="radio" name="channel" value="blue">
-            <label for="gb" class="channel-label">B</label>
-            <input id="ga" class="channel-radio" type="radio" name="channel" value="alpha">
-            <label for="ga" class="channel-label">A</label>
+          <form action="javascript:void(0)">
+            <div class="channel-radios">
+              <input id="gr" class="channel-radio" type="radio" name="channel" value="red">
+              <label for="gr" class="channel-label">R</label>
+              <input id="gg" class="channel-radio" type="radio" name="channel" value="green" checked>
+              <label for="gg" class="channel-label">G</label>
+              <input id="gb" class="channel-radio" type="radio" name="channel" value="blue">
+              <label for="gb" class="channel-label">B</label>
+              <input id="ga" class="channel-radio" type="radio" name="channel" value="alpha">
+              <label for="ga" class="channel-label">A</label>
+            </div>
+            <label for="green-invert" class="checkbox-wrapper">
+              <input id="green-invert" type="checkbox" name="invert">
+              <svg class="icon checkbox"><use class="check" href="icons.svg#check"></use></svg>
+              Invert
+            </label>
           </form>
         </div>
         <div id="blue-input">
@@ -68,15 +82,22 @@
             <canvas class="input-canvas"></canvas>
             <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
-          <form class="channel-radios" action="javascript:void(0)">
-            <input id="br" class="channel-radio" type="radio" name="channel" value="red">
-            <label for="br" class="channel-label">R</label>
-            <input id="bg" class="channel-radio" type="radio" name="channel" value="green">
-            <label for="bg" class="channel-label">G</label>
-            <input id="bb" class="channel-radio" type="radio" name="channel" value="blue" checked>
-            <label for="bb" class="channel-label">B</label>
-            <input id="ba" class="channel-radio" type="radio" name="channel" value="alpha">
-            <label for="ba" class="channel-label">A</label>
+          <form action="javascript:void(0)">
+            <div class="channel-radios">
+              <input id="br" class="channel-radio" type="radio" name="channel" value="red">
+              <label for="br" class="channel-label">R</label>
+              <input id="bg" class="channel-radio" type="radio" name="channel" value="green">
+              <label for="bg" class="channel-label">G</label>
+              <input id="bb" class="channel-radio" type="radio" name="channel" value="blue" checked>
+              <label for="bb" class="channel-label">B</label>
+              <input id="ba" class="channel-radio" type="radio" name="channel" value="alpha">
+              <label for="ba" class="channel-label">A</label>
+            </div>
+            <label for="blue-invert" class="checkbox-wrapper">
+              <input id="blue-invert" type="checkbox" name="invert">
+              <svg class="icon checkbox"><use class="check" href="icons.svg#check"></use></svg>
+              Invert
+            </label>
           </form>
         </div>
         <div id="alpha-input">
@@ -89,20 +110,27 @@
             <canvas class="input-canvas"></canvas>
             <button class="button delete-button"><svg class="icon"><use href="icons.svg#trash"></use></svg></button>
           </div>
-          <form class="channel-radios" action="javascript:void(0)">
-            <input id="ar" class="channel-radio" type="radio" name="channel" value="red">
-            <label for="ar" class="channel-label">R</label>
-            <input id="ag" class="channel-radio" type="radio" name="channel" value="green">
-            <label for="ag" class="channel-label">G</label>
-            <input id="ab" class="channel-radio" type="radio" name="channel" value="blue">
-            <label for="ab" class="channel-label">B</label>
-            <input id="aa" class="channel-radio" type="radio" name="channel" value="alpha" checked>
-            <label for="aa" class="channel-label">A</label>
+          <form action="javascript:void(0)">
+            <div class="channel-radios">
+              <input id="ar" class="channel-radio" type="radio" name="channel" value="red">
+              <label for="ar" class="channel-label">R</label>
+              <input id="ag" class="channel-radio" type="radio" name="channel" value="green">
+              <label for="ag" class="channel-label">G</label>
+              <input id="ab" class="channel-radio" type="radio" name="channel" value="blue">
+              <label for="ab" class="channel-label">B</label>
+              <input id="aa" class="channel-radio" type="radio" name="channel" value="alpha" checked>
+              <label for="aa" class="channel-label">A</label>
+            </div>
+            <label for="alpha-invert" class="checkbox-wrapper">
+              <input id="alpha-invert" type="checkbox" name="invert">
+              <svg class="icon checkbox"><use class="check" href="icons.svg#check"></use></svg>
+              Invert
+            </label>
           </form>
         </div>
       </div>
     </div>
-    <span id="footnote">Icons by <a href="https://fontawesome.com/">Font
+    <span id="footnote"><a href="/">Homepage</a> / Icons by <a href="https://fontawesome.com/">Font
     Awesome</a> (<a href="https://fontawesome.com/license/free">CC BY 4.0</a>)</span>
   </body>
 </html>

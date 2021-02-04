@@ -46,7 +46,10 @@ function updateOutput() {
   const context = output.getContext("2d");
   const outputData = context.createImageData(width, height);
 
-  packChannels(outputData.data, inputData);
+  const invertFlags = inputs.map(input => input.querySelector("input[type=checkbox]").checked);
+
+  packChannels(outputData.data, inputData, invertFlags);
+
   context.putImageData(outputData, 0, 0);
   output.classList.add("present");
 }
@@ -73,16 +76,25 @@ function getInputSize() {
   return [ width, height ];
 }
 
-function packChannels(outputData, inputData) {
+function packChannels(outputData, inputData, invertFlags) {
   const defaultValues = [ 0, 0, 0, 255 ];
 
   for (let i = 0; i < 4; i++) {
     const data = inputData[i];
+    const invert = invertFlags[i];
 
     if (data !== null) {
-      copy(outputData, data, i, 4);
+      if (invert) {
+        copyInverted(outputData, data, i, 4);
+      } else {
+        copy(outputData, data, i, 4);
+      }
     } else {
-      fill(outputData, defaultValues[i], i, 4);
+      if (invert) {
+        fill(outputData, 255 - defaultValues[i], i, 4);
+      } else {
+        fill(outputData, defaultValues[i], i, 4);
+      }
     }
   }
 }
@@ -96,6 +108,12 @@ function fill(outArray, value, start, stride) {
 function copy(outArray, inArray, start, stride) {
   for (let i = start; i < outArray.length; i += stride) {
     outArray[i] = inArray[i - start];
+  }
+}
+
+function copyInverted(outArray, inArray, start, stride) {
+  for (let i = start; i < outArray.length; i += stride) {
+    outArray[i] = 255 - inArray[i - start];
   }
 }
 
