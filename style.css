@@ -238,6 +238,10 @@ svg {
 
 /* Checkbox */
 
+.checkbox-wrapper {
+  display: inline-block;
+}
+
 .checkbox-wrapper input {
   position: absolute;
   opacity: 0;
